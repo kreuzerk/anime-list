@@ -1,31 +1,50 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {AppModule} from "./app.module";
 
 describe('AppComponent', () => {
+
+  const demoData = {
+    pages: [
+      [
+        {
+          name: 'animeOne'
+        },
+        {
+          name: 'animeTwo'
+        },
+      ],
+      [
+        {
+          name: 'animeThree'
+        },
+        {
+          name: 'animeFour'
+        },
+      ]
+    ]
+  }
+
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        AppModule
       ],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  beforeEach(() => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'anime-list'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('anime-list');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('anime-list app is running!');
   });
+
+  it('should create the app', () => {
+    const mappedData = component.mapper(demoData);
+    expect(mappedData[0][0].test).toEqual('bar');
+  });
+
+
 });

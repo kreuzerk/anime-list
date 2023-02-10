@@ -1,0 +1,70 @@
+.container {
+  min-height: 100vh;
+  background-color: #052020;
+}
+
+.grid:first-child {
+  padding-top: 150px;
+}
+
+.grid {
+  padding-top: 50px;
+  display: grid;
+  grid-gap: 50px;
+  min-height: calc(100vh - 70px - 150px);
+
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-auto-flow: dense;
+  align-items: stretch;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.anime-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #021818;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.anime-title {
+  height: 50px;
+  font-size: 30px;
+  padding: 50px;
+  color: white;
+}
+
+.variation-one {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.variation-two {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.variation-three {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.variation-four {
+  grid-column: span 3;
+  grid-row: span 3;
+}
